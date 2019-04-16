@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.music{
+				width: 320px;
+				height: 80px;
+				background-color: burlywood;
+				padding: 20px;		
+			}
+			.music>div{
+				float:left;
+			}
+			img{
+				width:80px;
+				height:80px;
+				border-radius: 100%;
+				-webkit-animation: rotate 5s 0s linear infinite;
+				-webkit-animation-play-state: paused;	
+			}
+			.btn-group{
+				padding-top:27px ;
+				padding-left:20px ;
+			}
+			.btn-group .btn{
+				float: left;
+				margin-right: 10px;
+				
+			}
+			.btn-prev{
+				position: relative;
+				top:3px;
+				width:16px;
+				height: 20px;
+				background: url(images/ico_btn_player.png) no-repeat -90px 0 ;
+			}
+			.btn-next{
+				position: relative;
+				top:3px;
+				width:16px;
+				height: 20px;
+				background: url(images/ico_btn_player.png) no-repeat -90px -30px ;
+			}
+			.btn-play{
+				position: relative;				
+				width:22px;
+				height: 26px;
+				background: url(images/ico_btn_player.png) no-repeat -90px -60px ;
+			}
+			.btn-pause{
+				position: relative;
+				width:22px;
+				height: 26px;
+				background: url(images/ico_btn_player.png) no-repeat -90px -90px ;
+			}
+			.music-info{
+				float:right;
+				padding-top: 26px;
+			}
+			.music-info p{
+				text-align: right;
+				margin: 0;
+			}
+			
+			@-webkit-keyframes rotate{
+				from{
+					-webkit-transform: rotate(0deg);
+				}
+				to{
+					-webkit-transform: rotate(359deg);
+				}
+			}	
+			
+
+		</style>
+	</head>
+	<body>
+		<div class="music">
+			
+			<div class="img">
+				<img src="images/kuaizixiongdi.jpeg"/>	
+			</div>
+			<div class="btn-group">
+				<div class="btn btn-prev"></div>
+				<div class="btn btn-pause btn-play"></div>
+				<div class="btn btn-next"></div>				
+			</div>
+			<div class="music-info">
+				<input type="range" name="" id="" value="" />
+				<p>00:00/00:00</p>
+			</div>
+			<div>
+				<audio src="media/小苹果.mp3"></audio>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			// 获取音乐
+			var mp3 = document.getElementById("music");
+			var playBtn = document.querySelector(".btn-play")
+			var image = document.querySelector(".image img")
+			
+			playBtn.onclick = function(){
+			//paused 暂停 	play 播放  
+		
+				if(mp3.paused){
+					mp3.play();
+					this.className = "btn btn-pause";
+					image.style.webkitAnimationPlayState = "running";						
+				}else{
+					mp3.pause();
+					this.className = "btn btn-play";
+					image.style.webkitAnimationPlayState = "paused";
+				}			
+			}
+			
+			
+		</script>
+	</body>
+</html>
